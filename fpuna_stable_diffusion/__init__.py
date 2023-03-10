@@ -1,1 +1,2 @@
 import fpuna_stable_diffusion.utils
+import fpuna_stable_diffusion.lab2
