@@ -1,6 +1,17 @@
 from PIL import Image
 import requests
 from io import BytesIO
+from IPython.display import HTML
+from base64 import b64encode
+
+def visualize_video_colab(video_path):
+    mp4 = open(video_path,'rb').read()
+    data_url = "data:video/mp4;base64," + b64encode(mp4).decode()
+    return HTML("""
+    <video width=400 controls>
+        <source src="%s" type="video/mp4">
+    </video>
+    """ % data_url)
 
 # https://huggingface.co/blog/stable_diffusion
 def image_grid(imgs, rows, cols):
